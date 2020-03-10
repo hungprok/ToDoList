@@ -19,7 +19,7 @@ let addItem = () => {
 let Render = () => {
     // console.log(JSON.parse(localStorage.getItem("todoList")));
     let HTMLtodoArray = todoList.map((item, index) => {
-        return `<li id=${index} > ${item.value} ${item.isDone} <button class="btn btn-danger" onclick = "remove (${index})">
+        return `<li style="text-decoration:${item.isDone ?"Line-through": ""}" > ${item.value} ${item.isDone} <button class="btn btn-danger" onclick = "remove (${index})">
                 X </button><button class="btn btn-success" id="DoneButton" onclick = "Done (${index})">${item.status}</button></li > `;
     }).join("");
     document.getElementById("resultArea").innerHTML = HTMLtodoArray;
