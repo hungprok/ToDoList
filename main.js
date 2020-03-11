@@ -1,13 +1,17 @@
 let InputValue = document.getElementById("todoinput");
 
-// let todoList = JSON.parse(localStorage.getItem('todoList'));;
-let todoList = [];
+let todoList = JSON.parse(localStorage.getItem('todoList'));;
+if (todoList === null) {
+    todoList = [];
+}
+
+// let todoList = [];
 let isDone = false;
 let status = "DONE"
 let checkboxStatus = false;
 
 let addItem = () => {
-    // JSON.parse(localStorage.getItem('todoList'));
+    JSON.parse(localStorage.getItem('todoList'));
     let todoValue = {
         value: InputValue.value,
         isDone,
@@ -18,16 +22,16 @@ let addItem = () => {
 }
 
 let Render = () => {
-        // console.log(JSON.parse(localStorage.getItem("todoList")));
-        let HTMLtodoArray = todoList.map((item, index) => {
-            return `<li style="text-decoration:${item.isDone ?"Line-through": ""}" ><span style="max-width: 150px;">${item.value}</span><button class="btn btn-danger" onclick = "remove (${index})">
+    // console.log(JSON.parse(localStorage.getItem("todoList")));
+    let HTMLtodoArray = todoList.map((item, index) => {
+        return `<li style="text-decoration:${item.isDone ?"Line-through": ""}" ><span style="max-width: 150px;">${item.value}</span><button class="btn btn-danger" onclick = "remove (${index})">
                 X </button><button class="btn btn-success" id="DoneButton" onclick = "Done (${index})">${item.status}</button></li > `;
-        }).join("");
-        document.getElementById("resultArea").innerHTML = HTMLtodoArray;
-        console.log(todoList);
-        // localStorage.setItem("todoList", JSON.stringify(todoList));
-    }
-    // Render();
+    }).join("");
+    document.getElementById("resultArea").innerHTML = HTMLtodoArray;
+    console.log(todoList);
+    localStorage.setItem("todoList", JSON.stringify(todoList));
+}
+Render();
 
 let remove = (index) => {
     todoList.splice(index, 1);
