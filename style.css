@@ -1,3 +1,13 @@
     li {
-        background-color: aqua;
+        /* background-color: aqua; */
+        margin-top: 10px;
     }
+    
+    button {
+        margin-left: 10px;
+    }
+    
+    /* li>span {
+        word-break: break-all;
+        width: 100px;
+    } */

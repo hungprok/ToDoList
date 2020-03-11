@@ -20,7 +20,7 @@ let addItem = () => {
 let Render = () => {
         // console.log(JSON.parse(localStorage.getItem("todoList")));
         let HTMLtodoArray = todoList.map((item, index) => {
-            return `<li style="text-decoration:${item.isDone ?"Line-through": ""}" > ${item.value} ${item.isDone} <button class="btn btn-danger" onclick = "remove (${index})">
+            return `<li style="text-decoration:${item.isDone ?"Line-through": ""}" ><span style="max-width: 150px;">${item.value}</span><button class="btn btn-danger" onclick = "remove (${index})">
                 X </button><button class="btn btn-success" id="DoneButton" onclick = "Done (${index})">${item.status}</button></li > `;
         }).join("");
         document.getElementById("resultArea").innerHTML = HTMLtodoArray;
@@ -55,7 +55,7 @@ let ShowDone = () => {
         var filtered = todoList.filter(filter_done);
         console.log(filtered);
         let HTMLtodoArray = filtered.map((item, index) => {
-            return `<li style="text-decoration:${item.isDone ?"Line-through": ""}" > ${item.value} ${item.isDone} <button class="btn btn-danger" onclick = "remove (${index})">
+            return `<li style="text-decoration:${item.isDone ?"Line-through": ""}" > <span>${item.value}</span> <button class="btn btn-danger" onclick = "remove (${index})">
                 X </button><button class="btn btn-success" id="DoneButton" onclick = "Done (${index})">${item.status}</button></li > `;
         }).join("");
         document.getElementById("resultArea").innerHTML = HTMLtodoArray;
